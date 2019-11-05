@@ -23,269 +23,276 @@ export default [
     component: '../layouts/BasicLayout',
     Routes: ['src/pages/Authorized'],
     routes: [
-      // dashboard
-      { path: '/', redirect: '/dashboard/analysis', authority: ['admin', 'user'] },
       {
-        path: '/dashboard',
-        name: 'dashboard',
-        icon: 'dashboard',
+        // demo
+        path: '/demo',
+        name: 'demo',
         routes: [
+          // dashboard
+          { path: '/', redirect: '/dashboard/analysis', authority: ['admin', 'user'] },
           {
-            path: '/dashboard/analysis',
-            name: 'analysis',
-            component: './Dashboard/Analysis',
-          },
-          {
-            path: '/dashboard/monitor',
-            name: 'monitor',
-            component: './Dashboard/Monitor',
-          },
-          {
-            path: '/dashboard/workplace',
-            name: 'workplace',
-            component: './Dashboard/Workplace',
-          },
-        ],
-      },
-      // forms
-      {
-        path: '/form',
-        icon: 'form',
-        name: 'form',
-        routes: [
-          {
-            path: '/form/basic-form',
-            name: 'basicform',
-            component: './Forms/BasicForm',
-          },
-          {
-            path: '/form/step-form',
-            name: 'stepform',
-            component: './Forms/StepForm',
-            hideChildrenInMenu: true,
+            path: '/demo/dashboard',
+            name: 'dashboard',
+            icon: 'dashboard',
             routes: [
               {
-                path: '/form/step-form',
-                redirect: '/form/step-form/info',
+                path: '/demo/dashboard/analysis',
+                name: 'analysis',
+                component: './Dashboard/Analysis',
               },
               {
-                path: '/form/step-form/info',
-                name: 'info',
-                component: './Forms/StepForm/Step1',
+                path: '/demo/dashboard/monitor',
+                name: 'monitor',
+                component: './Dashboard/Monitor',
               },
               {
-                path: '/form/step-form/confirm',
-                name: 'confirm',
-                component: './Forms/StepForm/Step2',
+                path: '/demo/dashboard/workplace',
+                name: 'workplace',
+                component: './Dashboard/Workplace',
+              },
+            ],
+          },
+          // forms
+          {
+            path: '/demo/form',
+            icon: 'form',
+            name: 'form',
+            routes: [
+              {
+                path: '/demo/form/basic-form',
+                name: 'basicform',
+                component: './Forms/BasicForm',
               },
               {
-                path: '/form/step-form/result',
-                name: 'result',
-                component: './Forms/StepForm/Step3',
+                path: '/demo/form/step-form',
+                name: 'stepform',
+                component: './Forms/StepForm',
+                hideChildrenInMenu: true,
+                routes: [
+                  {
+                    path: '/demo/form/step-form',
+                    redirect: '/form/step-form/info',
+                  },
+                  {
+                    path: '/demo/form/step-form/info',
+                    name: 'info',
+                    component: './Forms/StepForm/Step1',
+                  },
+                  {
+                    path: '/demo/form/step-form/confirm',
+                    name: 'confirm',
+                    component: './Forms/StepForm/Step2',
+                  },
+                  {
+                    path: '/demo/form/step-form/result',
+                    name: 'result',
+                    component: './Forms/StepForm/Step3',
+                  },
+                ],
+              },
+              {
+                path: '/demo/form/advanced-form',
+                name: 'advancedform',
+                authority: ['admin'],
+                component: './Forms/AdvancedForm',
+              },
+            ],
+          },
+          // list
+          {
+            path: '/demo/list',
+            icon: 'table',
+            name: 'list',
+            routes: [
+              {
+                path: '/demo/list/table-list',
+                name: 'searchtable',
+                component: './List/TableList',
+              },
+              {
+                path: '/demo/list/basic-list',
+                name: 'basiclist',
+                component: './List/BasicList',
+              },
+              {
+                path: '/demo/list/card-list',
+                name: 'cardlist',
+                component: './List/CardList',
+              },
+              {
+                path: '/demo/list/search',
+                name: 'searchlist',
+                component: './List/List',
+                routes: [
+                  {
+                    path: '/demo/list/search',
+                    redirect: '/list/search/articles',
+                  },
+                  {
+                    path: '/demo/list/search/articles',
+                    name: 'articles',
+                    component: './List/Articles',
+                  },
+                  {
+                    path: '/demo/list/search/projects',
+                    name: 'projects',
+                    component: './List/Projects',
+                  },
+                  {
+                    path: '/demo/list/search/applications',
+                    name: 'applications',
+                    component: './List/Applications',
+                  },
+                ],
               },
             ],
           },
           {
-            path: '/form/advanced-form',
-            name: 'advancedform',
-            authority: ['admin'],
-            component: './Forms/AdvancedForm',
-          },
-        ],
-      },
-      // list
-      {
-        path: '/list',
-        icon: 'table',
-        name: 'list',
-        routes: [
-          {
-            path: '/list/table-list',
-            name: 'searchtable',
-            component: './List/TableList',
-          },
-          {
-            path: '/list/basic-list',
-            name: 'basiclist',
-            component: './List/BasicList',
-          },
-          {
-            path: '/list/card-list',
-            name: 'cardlist',
-            component: './List/CardList',
-          },
-          {
-            path: '/list/search',
-            name: 'searchlist',
-            component: './List/List',
+            path: '/demo/profile',
+            name: 'profile',
+            icon: 'profile',
             routes: [
+              // profile
               {
-                path: '/list/search',
-                redirect: '/list/search/articles',
+                path: '/demo/profile/basic',
+                name: 'basic',
+                component: './Profile/BasicProfile',
               },
               {
-                path: '/list/search/articles',
-                name: 'articles',
-                component: './List/Articles',
+                path: '/demo/profile/basic/:id',
+                hideInMenu: true,
+                component: './Profile/BasicProfile',
               },
               {
-                path: '/list/search/projects',
-                name: 'projects',
-                component: './List/Projects',
-              },
-              {
-                path: '/list/search/applications',
-                name: 'applications',
-                component: './List/Applications',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        path: '/profile',
-        name: 'profile',
-        icon: 'profile',
-        routes: [
-          // profile
-          {
-            path: '/profile/basic',
-            name: 'basic',
-            component: './Profile/BasicProfile',
-          },
-          {
-            path: '/profile/basic/:id',
-            hideInMenu: true,
-            component: './Profile/BasicProfile',
-          },
-          {
-            path: '/profile/advanced',
-            name: 'advanced',
-            authority: ['admin'],
-            component: './Profile/AdvancedProfile',
-          },
-        ],
-      },
-      {
-        name: 'result',
-        icon: 'check-circle-o',
-        path: '/result',
-        routes: [
-          // result
-          {
-            path: '/result/success',
-            name: 'success',
-            component: './Result/Success',
-          },
-          { path: '/result/fail', name: 'fail', component: './Result/Error' },
-        ],
-      },
-      {
-        name: 'exception',
-        icon: 'warning',
-        path: '/exception',
-        routes: [
-          // exception
-          {
-            path: '/exception/403',
-            name: 'not-permission',
-            component: './Exception/403',
-          },
-          {
-            path: '/exception/404',
-            name: 'not-find',
-            component: './Exception/404',
-          },
-          {
-            path: '/exception/500',
-            name: 'server-error',
-            component: './Exception/500',
-          },
-          {
-            path: '/exception/trigger',
-            name: 'trigger',
-            hideInMenu: true,
-            component: './Exception/TriggerException',
-          },
-        ],
-      },
-      {
-        name: 'account',
-        icon: 'user',
-        path: '/account',
-        routes: [
-          {
-            path: '/account/center',
-            name: 'center',
-            component: './Account/Center/Center',
-            routes: [
-              {
-                path: '/account/center',
-                redirect: '/account/center/articles',
-              },
-              {
-                path: '/account/center/articles',
-                component: './Account/Center/Articles',
-              },
-              {
-                path: '/account/center/applications',
-                component: './Account/Center/Applications',
-              },
-              {
-                path: '/account/center/projects',
-                component: './Account/Center/Projects',
+                path: '/demo/profile/advanced',
+                name: 'advanced',
+                authority: ['admin'],
+                component: './Profile/AdvancedProfile',
               },
             ],
           },
           {
-            path: '/account/settings',
-            name: 'settings',
-            component: './Account/Settings/Info',
+            name: 'result',
+            icon: 'check-circle-o',
+            path: '/demo/result',
             routes: [
+              // result
               {
-                path: '/account/settings',
-                redirect: '/account/settings/base',
+                path: '/demo/result/success',
+                name: 'success',
+                component: './Result/Success',
+              },
+              { path: '/demo/result/fail', name: 'fail', component: './Result/Error' },
+            ],
+          },
+          {
+            name: 'exception',
+            icon: 'warning',
+            path: '/demo/exception',
+            routes: [
+              // exception
+              {
+                path: '/demo/exception/403',
+                name: 'not-permission',
+                component: './Exception/403',
               },
               {
-                path: '/account/settings/base',
-                component: './Account/Settings/BaseView',
+                path: '/demo/exception/404',
+                name: 'not-find',
+                component: './Exception/404',
               },
               {
-                path: '/account/settings/security',
-                component: './Account/Settings/SecurityView',
+                path: '/demo/exception/500',
+                name: 'server-error',
+                component: './Exception/500',
               },
               {
-                path: '/account/settings/binding',
-                component: './Account/Settings/BindingView',
-              },
-              {
-                path: '/account/settings/notification',
-                component: './Account/Settings/NotificationView',
+                path: '/demo/exception/trigger',
+                name: 'trigger',
+                hideInMenu: true,
+                component: './Exception/TriggerException',
               },
             ],
           },
-        ],
-      },
-      //  editor
-      {
-        name: 'editor',
-        icon: 'highlight',
-        path: '/editor',
-        routes: [
           {
-            path: '/editor/flow',
-            name: 'flow',
-            component: './Editor/GGEditor/Flow',
+            name: 'account',
+            icon: 'user',
+            path: '/demo/account',
+            routes: [
+              {
+                path: '/demo/account/center',
+                name: 'center',
+                component: './Account/Center/Center',
+                routes: [
+                  {
+                    path: '/demo/account/center',
+                    redirect: '/account/center/articles',
+                  },
+                  {
+                    path: '/demo/account/center/articles',
+                    component: './Account/Center/Articles',
+                  },
+                  {
+                    path: '/demo/account/center/applications',
+                    component: './Account/Center/Applications',
+                  },
+                  {
+                    path: '/demo/account/center/projects',
+                    component: './Account/Center/Projects',
+                  },
+                ],
+              },
+              {
+                path: '/demo/account/settings',
+                name: 'settings',
+                component: './Account/Settings/Info',
+                routes: [
+                  {
+                    path: '/demo/account/settings',
+                    redirect: '/account/settings/base',
+                  },
+                  {
+                    path: '/demo/account/settings/base',
+                    component: './Account/Settings/BaseView',
+                  },
+                  {
+                    path: '/demo/account/settings/security',
+                    component: './Account/Settings/SecurityView',
+                  },
+                  {
+                    path: '/demo/account/settings/binding',
+                    component: './Account/Settings/BindingView',
+                  },
+                  {
+                    path: '/demo/account/settings/notification',
+                    component: './Account/Settings/NotificationView',
+                  },
+                ],
+              },
+            ],
           },
+          //  editor
           {
-            path: '/editor/mind',
-            name: 'mind',
-            component: './Editor/GGEditor/Mind',
-          },
-          {
-            path: '/editor/koni',
-            name: 'koni',
-            component: './Editor/GGEditor/Koni',
+            name: 'editor',
+            icon: 'highlight',
+            path: '/demo/editor',
+            routes: [
+              {
+                path: '/demo/editor/flow',
+                name: 'flow',
+                component: './Editor/GGEditor/Flow',
+              },
+              {
+                path: '/demo/editor/mind',
+                name: 'mind',
+                component: './Editor/GGEditor/Mind',
+              },
+              {
+                path: '/demo/editor/koni',
+                name: 'koni',
+                component: './Editor/GGEditor/Koni',
+              },
+            ],
           },
         ],
       },
