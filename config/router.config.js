@@ -23,6 +23,75 @@ export default [
     component: '../layouts/BasicLayout',
     Routes: ['src/pages/Authorized'],
     routes: [
+      // student
+      { path: '/', redirect: '/student/proposal/select_topic' },
+      { path: '/student', redirect: '/student/proposal/select_topic' },
+      {
+        path: '/student/proposal',
+        name: 'proposal',
+        icon: 'form',
+        routes: [
+          {
+            path: '/student/proposal/select_topic',
+            name: 'select_topic',
+            component: './Student/Proposal/TopicSelection',
+          },
+          {
+            path: '/student/proposal/apply_topic',
+            name: 'apply_topic',
+            component: './Student/Proposal/TopicApply',
+          },
+          {
+            path: '/student/proposal/report',
+            name: 'report',
+            component: './Student/Proposal/TopicReport',
+          },
+        ],
+      },
+      {
+        path: '/student/guidance',
+        name: 'guidance',
+        icon: 'form',
+        routes: [
+          {
+            path: '/student/guidance/submit_guidance',
+            name: 'submit_guidance',
+            component: './Student/Guidance/SubmitGuidance',
+          },
+          {
+            path: '/student/guidance/guidance_history',
+            name: 'guidance_history',
+            component: './Student/Guidance/GuidanceHistory',
+          },
+          {
+            path: '/student/guidance/submit_inspection',
+            name: 'submit_inspection',
+            component: './Student/Guidance/SubmitInspection',
+          },
+        ],
+      },
+      {
+        path: '/student/defense',
+        name: 'defense',
+        icon: 'form',
+        routes: [
+          {
+            path: '/student/defense/submit_thesis',
+            name: 'submit_thesis',
+            component: './Student/Defense/SubmitThesis',
+          },
+          {
+            path: '/student/defense/schedule',
+            name: 'schedule',
+            component: './Student/Defense/Schedule',
+          },
+          {
+            path: '/student/defense/score',
+            name: 'defense_score',
+            component: './Student/Defense/DefenseScore',
+          },
+        ],
+      },
       {
         // demo
         path: '/demo',

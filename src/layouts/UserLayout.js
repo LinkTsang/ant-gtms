@@ -70,7 +70,7 @@ class UserLayout extends Component {
                   <span className={styles.title}>论文管理系统</span>
                 </Link>
               </div>
-              <div className={styles.desc}>By 955 Team</div>
+              <div className={styles.desc}>学生端</div>
             </div>
             {children}
           </div>
